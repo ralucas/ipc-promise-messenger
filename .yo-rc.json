@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "R.A. Lucas",
+      "authorEmail": "richard@richardalucas.com",
+      "authorUrl": ""
+    }
+  }
+}
