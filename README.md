@@ -10,9 +10,23 @@ $ npm install --save ipc-promise-messenger
 ## Usage
 
 ```js
-const ipcPromiseMessenger = require('ipc-promise-messenger');
+const ipcMessenger = require('ipc-promise-messenger');
 
-ipcPromiseMessenger('Rainbow');
+// Parent Process
+function onMessage(child, msg) {
+  ipcMessenger.acknowledge(child, msg)
+    .then(function(msg) {
+      return doSomethingWithMessage(msg);  
+    });
+}
+child.on('message', onMessage.bind(null, child));
+...
+// Child Process
+const msg = 'Beep';
+ipcMessenger.send(msg)
+  .then(receivedMsg => {
+    return doSomethingNowMessageWasAcked();
+  });
 ```
 ## License
 
