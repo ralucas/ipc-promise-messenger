@@ -2,7 +2,7 @@
   "name": "ipc-promise-messenger",
   "version": "0.0.1",
   "description": "Pass messages via ipc utilizing promises",
-  "homepage": "",
+  "homepage": "http://ralucas.github.io/ipc-promise-messenger",
   "author": {
     "name": "R.A. Lucas",
     "email": "richard@richardalucas.com",
