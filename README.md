@@ -13,18 +13,18 @@ $ npm install --save ipc-promise-messenger
 const ipcMessenger = require('ipc-promise-messenger');
 
 // Parent Process
-function onMessage(child, msg) {
-  ipcMessenger.acknowledge(child, msg)
-    .then(function(msg) {
-      return doSomethingWithMessage(msg);  
-    });
+ipcMessenger.acknowledge(childProcess)
+  .then(function(msg) {
+    // msg => 'Beep'
+    return doSomethingWithMessage(msg);  
+  });
 }
-child.on('message', onMessage.bind(null, child));
 ...
 // Child Process
 const msg = 'Beep';
 ipcMessenger.send(msg)
   .then(receivedMsg => {
+    // receivedMsg => '4e5e247c20ab935eb6dcda8a4176176e', which == md5('Beep')
     return doSomethingNowMessageWasAcked();
   });
 ```
